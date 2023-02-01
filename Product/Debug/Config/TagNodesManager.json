@@ -1,0 +1,381 @@
+{
+  "TagNodes": [
+    {
+      "NodeId": "HaveOrder",
+      "NodeName": "是否有订单"
+    },
+    {
+      "NodeId": "OrderId",
+      "NodeName": "订单号"
+    },
+    {
+      "NodeId": "StartTime",
+      "NodeName": "入住时间"
+    },
+    {
+      "NodeId": "EndTime",
+      "NodeName": "预离时间"
+    },
+    {
+      "NodeId": "RoomNumber",
+      "NodeName": "房间号"
+    },
+    {
+      "NodeId": "RoomType",
+      "NodeName": "房间类型"
+    },
+    {
+      "NodeId": "RoomTypeName",
+      "NodeName": "房间类型名称"
+    },
+    {
+      "NodeId": "PaymentState",
+      "NodeName": "支付状态"
+    },
+    {
+      "NodeId": "OrderSource",
+      "NodeName": "订单来源"
+    },
+    {
+      "NodeId": "NeedToPay",
+      "NodeName": "是否需要支付"
+    },
+    {
+      "NodeId": "AllInCost",
+      "NodeName": "总房费"
+    },
+    {
+      "NodeId": "CashPledge",
+      "NodeName": "押金"
+    },
+    {
+      "NodeId": "AllInCost_Payed",
+      "NodeName": "总房费"
+    },
+    {
+      "NodeId": "CashPledge_Payed",
+      "NodeName": "押金"
+    },
+    {
+      "NodeId": "Phone",
+      "NodeName": "联系电话"
+    },
+    {
+      "NodeId": "IDCards",
+      "NodeName": "人证核验登记的信息集合"
+    },
+    {
+      "NodeId": "IDCard",
+      "NodeName": "人证核验登记的信息"
+    },
+    {
+      "NodeId": "Photo",
+      "NodeName": "身份证照片"
+    },
+    {
+      "NodeId": "GuestAmount",
+      "NodeName": "入住人数"
+    },
+    {
+      "NodeId": "GuestIndex",
+      "NodeName": "人证登记索引号"
+    },
+    {
+      "NodeId": "CheckInResult",
+      "NodeName": "入住办理结果"
+    },
+    {
+      "NodeId": "PayMethod",
+      "NodeName": "支付方式"
+    },
+    {
+      "NodeId": "TotalPayment",
+      "NodeName": "支付金额"
+    },
+    {
+      "NodeId": "TotalPayment_Payed",
+      "NodeName": "已支付金额"
+    },
+    {
+      "NodeId": "BackSign",
+      "NodeName": "节点内从其他界面返回的标记"
+    },
+    {
+      "NodeId": "StayDays",
+      "NodeName": "入住天数"
+    },
+    {
+      "NodeId": "RoomRate",
+      "NodeName": "房间费用"
+    },
+    {
+      "NodeId": "MemberId",
+      "NodeName": "会员ID"
+    },
+    {
+      "NodeId": "BuildMemberId",
+      "NodeName": "创建的会员ID"
+    },
+    {
+      "NodeId": "MemberLevel",
+      "NodeName": "会员等级"
+    },
+    {
+      "NodeId": "CanMakeCard",
+      "NodeName": "是否可以制卡"
+    },
+    {
+      "NodeId": "CardNumber",
+      "NodeName": "卡号"
+    },
+    {
+      "NodeId": "CardCount",
+      "NodeName": "卡数量"
+    },
+    {
+      "NodeId": "GuestName",
+      "NodeName": "入住人数"
+    },
+    {
+      "NodeId": "ContinueCheckOut",
+      "NodeName": "是否继续退房"
+    },
+    {
+      "NodeId": "IsReservedPhone",
+      "NodeName": "系统配置：预留手机号"
+    },
+    {
+      "NodeId": "MemberValidation",
+      "NodeName": "系统配置：开启会员"
+    },
+    {
+      "NodeId": "ManualCheckOfOccupancy",
+      "NodeName": "系统配置：入住人工校验"
+    },
+    {
+      "NodeId": "UnionDanbaoPay",
+      "NodeName": "系统配置：担保交易"
+    },
+    {
+      "NodeId": "PayId",
+      "NodeName": "支付单号"
+    },
+    {
+      "NodeId": "LockExtInfo",
+      "NodeName": "必达门锁续住需要"
+    },
+    {
+      "NodeId": "TeamCheckIn",
+      "NodeName": "是否团队入住，1团队入住，0会议入住"
+    },
+    {
+      "NodeId": "TeamCheckInNum",
+      "NodeName": "针对团队和会议(1：第一次入住 2：已入住)"
+    },
+    {
+      "NodeId": "IsMorningRoom",
+      "NodeName": "是否是凌晨房"
+    },
+    {
+      "NodeId": "OrderFinished",
+      "NodeName": "订单是否完成"
+    },
+    {
+      "NodeId": "CheckOutSuccess",
+      "NodeName": "退房是否成功"
+    },
+    {
+      "NodeId": "ContinueTeamMeet",
+      "NodeName": "继续办理团队会议"
+    },
+    {
+      "NodeId": "OpenDoor",
+      "NodeName": "是否发卡"
+    },
+    {
+      "NodeId": "IsMakeCardDN",
+      "NodeName": "是否成功制卡"
+    },
+    {
+      "NodeId": "PayType",
+      "NodeName": "支付类型"
+    },
+    {
+      "NodeId": "ChooseRoomTypesEnable",
+      "NodeName": "预订入住是否需要选房型"
+    },
+    {
+      "NodeId": "QueryOrderKeyword",
+      "NodeName": "查询订单的关键字"
+    },
+    {
+      "NodeId": "QueryOrderMethod",
+      "NodeName": "查询订单的方式"
+    },
+    {
+      "NodeId": "OrderRoomTypes",
+      "NodeName": "预订的房型"
+    },
+    {
+      "NodeId": "LockNo",
+      "NodeName": "门锁号"
+    },
+    {
+      "NodeId": "AlreadyCheckout",
+      "NodeName": "已经退房"
+    },
+    {
+      "NodeId": "HorizontalMode",
+      "NodeName": "横屏模式"
+    },
+    {
+      "NodeId": "ManualMakingCard",
+      "NodeName": "手动发卡"
+    },
+    {
+      "NodeId": "Password",
+      "NodeName": "补登记密码"
+    },
+    {
+      "NodeId": "IsSupplementaryRegistration",
+      "NodeName": "同住人是否在场"
+    },
+    {
+      "NodeId": "ContinueReserve",
+      "NodeName": "联房是否继续办理"
+    },
+    {
+      "NodeId": "NumberOfCards",
+      "NodeName": "实发卡数量"
+    },
+    {
+      "NodeId": "IsCheckIn",
+      "NodeName": "是否有在住房"
+    },
+    {
+      "NodeId": "FirstguestInfo",
+      "NodeName": "第一个登记的客人身份信息"
+    },
+    {
+      "NodeId": "HighTemperature",
+      "NodeName": "体温过高温度值"
+    },
+    {
+      "NodeId": "IsSetFirstGuest",
+      "NodeName": "第一个登记宾客是否选中入住状态"
+    },
+    {
+      "NodeId": "ShowFellowResidents",
+      "NodeName": "是否显示是否有同住人提示窗"
+    },
+    {
+      "NodeId": "IsFellowResident",
+      "NodeName": "是否有同住人"
+    },
+    {
+      "NodeId": "FaceOpenDoor",
+      "NodeName": "是否刷脸开门"
+    },
+    {
+      "NodeId": "AddFace",
+      "NodeName": "是否需要登记人脸"
+    },
+    {
+      "NodeId": "FaceOpenDoorSkip",
+      "NodeName": "是否跳过刷脸登记"
+    },
+    {
+      "NodeId": "FaceUsers",
+      "NodeName": "需要添加人脸的用户"
+    },
+    {
+      "NodeId": "FaceImg",
+      "NodeName": "人脸照片"
+    },
+    {
+      "NodeId": "Message",
+      "NodeName": "消息内容"
+    },
+    {
+      "NodeId": "FaceRegCondition",
+      "NodeName": "人脸门禁注册"
+    },
+    {
+      "NodeId": "AddFaceReg",
+      "NodeName": "人脸门禁注册跳转页面控制"
+    },
+    {
+      "NodeId": "SyzId",
+      "NodeName": "随易住订单ID"
+    },
+    {
+      "NodeId": "UploadResult",
+      "NodeName": "随易住用户上传结果"
+    },
+    {
+      "NodeId": "FaceResult",
+      "NodeName": "人证核验结果"
+    },
+    {
+      "NodeId": "IsFaceContinue",
+      "NodeName": "是否还有人继续人证核验"
+    },
+    {
+      "NodeId": "IsDirectCheckIn",
+      "NodeName": "是否直接入住还是其它方式查询"
+    },
+    {
+      "NodeId": "ActionId",
+      "NodeName": "菜单按钮的ActionId"
+    },
+    {
+      "NodeId": "ActionName",
+      "NodeName": "菜单按钮的ActionName"
+    },
+    {
+      "NodeId": "CheckInType",
+      "NodeName": "入住类型，3预定入住;1无预定入住"
+    },
+    {
+      "NodeId": "IsReturn",
+      "NodeName": "是否返回上一页"
+    },
+    {
+      "NodeId": "SyzOrderInfo",
+      "NodeName": "随易住订单信息"
+    },
+    {
+      "NodeId": "IsUserChoose",
+      "NodeName": "由客户选择还是自动选择无预定还是有预定入住"
+    },
+    {
+      "NodeId": "SyzCheckInResMessage",
+      "NodeName": "易佰PMS入住结果"
+    },
+    {
+      "NodeId": "TeamCode",
+      "NodeName": "输入的团队编码"
+    },
+    {
+      "NodeId": "TeamScanOrInput",
+      "NodeName": "团队入住办理模式"
+    },
+    {
+      "NodeId": "StillNeedRoomCard",
+      "NodeName": "是否还需要发卡"
+    },
+    {
+      "NodeId": "IsSignature",
+      "NodeName": "是否开启签名确认"
+    },
+    {
+      "NodeId": "SignImage",
+      "NodeName": "签名图片"
+    },
+    {
+      "NodeId": "Order",
+      "NodeName": "订单对象"
+    }
+    
+  ]
+}

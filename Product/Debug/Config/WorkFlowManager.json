@@ -1,0 +1,1938 @@
+{
+  "$type": "RH.WorkFlows.WorkFlowManager, RH.WorkFlows",
+  "Flows": {
+    "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.WorkFlow, RH.WorkFlows]], mscorlib",
+    "$values": [
+
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "DefaultPage"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "DefaultPage",
+              "ItemName": "默认页面",
+              "ItemType": 3,
+              "CurrentPage": "DefaultPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "end",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "default",
+        "WorkFlowName": "测试流程",
+        "FlowType": 0
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "NextItemId": "IdCardCondition",
+              "ItemId": "1",
+              "ItemName": "开始",
+              "ItemType": 1
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "PrevItemId": null,
+              "TrueNextItemId": "InsertCard",
+              "FalseNextItemId": "IdCardPage",
+              "BindItems": "OpenDoor",
+              "ItemId": "IdCardCondition",
+              "ItemName": "是否开启身份证退房",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "QueryOrder",
+              "PrevItemId": null,
+              "CurrentPage": "IdCardPage.xaml",
+              "ItemId": "IdCardPage",
+              "ItemName": "刷身份证",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "QueryOrder",
+              "PrevItemId": null,
+              "CurrentPage": "InsertRoomCardPage.xaml",
+              "ItemId": "InsertCard",
+              "ItemName": "插入房卡",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "QueryOrder",
+              "ItemName": "查询订单",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.QueryCheckOutOrder, RH.UI.Richer",
+              "NextItemId": "AlreadyCheckoutCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "PrevItemId": null,
+              "TrueNextItemId": "7",
+              "FalseNextItemId": "Order",
+              "BindItems": "AlreadyCheckout",
+              "ItemId": "AlreadyCheckoutCondition",
+              "ItemName": "退房是否成功",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "judgecheckout",
+              "PrevItemId": null,
+              "CurrentPage": "CheckOutOrderPage.xaml",
+              "ItemId": "Order",
+              "ItemName": "订单确定",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "PrevItemId": null,
+              "TrueNextItemId": "4",
+              "FalseNextItemId": "8",
+              "BindItems": "CheckOutSuccess",
+              "ItemId": "judgecheckout",
+              "ItemName": "退房是否成功",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "PrevItemId": null,
+              "TrueNextItemId": "5",
+              "FalseNextItemId": "7",
+              "BindItems": "ContinueCheckOut",
+              "ItemId": "4",
+              "ItemName": "是否继续退房",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "IdCardCondition",
+              "PrevItemId": null,
+              "CurrentPage": "RecoveryRoomCardSuccessPage.xaml",
+              "ItemId": "5",
+              "ItemName": "继续退房",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "JudgeContinue",
+              "PrevItemId": null,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "ItemId": "7",
+              "ItemName": "完成退房回收房卡",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "JudgeContinue",
+              "PrevItemId": null,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "ItemId": "71",
+              "ItemName": "退房失败",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "JudgeContinue",
+              "ItemName": "是否继续办理",
+              "TrueNextItemId": "1",
+              "FalseNextItemId": "8",
+              "BindItems": "ContinueTeamMeet",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "PrevItemId": null,
+              "ReturnPage": "HomePage.xaml",
+              "ItemId": "8",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "checkout",
+        "WorkFlowName": "退房办理",
+        "FlowType": 4
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "QueryOrder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "QueryOrder",
+              "ItemName": "订单查询",
+              "ItemType": 3,
+              "CurrentPage": "ReservationOrderQueryPage.xaml",
+              "NextItemId": "ChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ChooseRoomCondition",
+              "ItemName": "是否需要选房型",
+              "TrueNextItemId": "ChooseRoom",
+              "FalseNextItemId": "Order",
+              "BindItems": "ChooseRoomTypesEnable",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "ChooseRoom",
+              "ItemName": "选房型",
+              "ItemType": 3,
+              "CurrentPage": "ChooseRoomPage.xaml",
+              "NextItemId": "Order"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Order",
+              "ItemName": "订单显示",
+              "ItemType": 3,
+              "CurrentPage": "ReservationOrderPage.xaml",
+              "NextItemId": "PhoneCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "PhoneCondition",
+              "ItemName": "是否开启预留手机号",
+              "TrueNextItemId": "Phone",
+              "FalseNextItemId": "GuestNum",
+              "BindItems": "IsReservedPhone",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Phone",
+              "ItemName": "输入手机号",
+              "ItemType": 3,
+              "CurrentPage": "PhonePage.xaml",
+              "NextItemId": "GuestNum"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "GuestNum",
+              "ItemName": "选择入住人数",
+              "ItemType": 3,
+              "CurrentPage": "FixStayNumPage.xaml",
+              "NextItemId": "GuestCheckCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "GuestCheckCondition",
+              "ItemName": "是否开启前台核验",
+              "TrueNextItemId": "FrontDeskCheck",
+              "FalseNextItemId": "Identify",
+              "BindItems": "ManualCheckOfOccupancy",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FrontDeskCheck",
+              "ItemName": "前台核验",
+              "ItemType": 3,
+              "CurrentPage": "FrontDeskChecksPage.xaml",
+              "NextItemId": "Identify"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Identify",
+              "ItemName": "人证核验",
+              "ItemType": 3,
+              "CurrentPage": "IdentityVerificationPage.xaml",
+              "NextItemId": "PayCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "PayCondition",
+              "ItemName": "是否需要支付",
+              "TrueNextItemId": "PaymentCondition",
+              "FalseNextItemId": "CheckIn",
+              "BindItems": "NeedToPay",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "PaymentCondition",
+              "ItemName": "是否使用担保交易",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "PaymentByC2BUnion"
+                },
+                {
+                  "Case": "2",
+                  "Then": "PaymentByB2CUnion"
+                },
+                {
+                  "Case": "4",
+                  "Then": "PaymentByC2B"
+                },
+                {
+                  "Case": "5",
+                  "Then": "PaymentByB2C"
+                }
+              ],
+              "BindItems": "PayType",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByC2BUnion",
+              "ItemName": "支付-C扫B聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BUnionPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByB2CUnion",
+              "ItemName": "支付-B扫C聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CUnionPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByC2B",
+              "ItemName": "支付-C扫B可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByB2C",
+              "ItemName": "支付-B扫C可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckIn",
+              "ItemName": "办理入住中",
+              "ItemType": 3,
+              "CurrentPage": "CheckInPage.xaml",
+              "NextItemId": "CheckInResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "CheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "SendCardCondition",
+              "FalseNextItemId": "CheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "SendCardCondition",
+              "ItemName": "是否发卡",
+              "TrueNextItemId": "ManualCondition",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "OpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ManualCondition",
+              "ItemName": "是否手动发卡",
+              "TrueNextItemId": "MakeCardManual",
+              "FalseNextItemId": "MakeCard",
+              "BindItems": "ManualMakingCard",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCardManual",
+              "ItemName": "手动发卡",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardManualPage.xaml",
+              "NextItemId": "CheckInSuccess"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCard",
+              "ItemName": "房卡制作",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardPage.xaml",
+              "NextItemId": "MakeCardResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "MakeCardResult",
+              "ItemName": "制卡结果",
+              "TrueNextItemId": "FaceOpenDoorCondition",
+              "FalseNextItemId": "MakeCardFailed",
+              "BindItems": "IsMakeCardDN",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCardFailed",
+              "ItemName": "制卡失败提示",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardFailedPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "FaceOpenDoorCondition",
+              "ItemName": "是否开启刷脸",
+              "TrueNextItemId": "QueryFaceResult",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "FaceOpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "QueryFaceResult",
+              "ItemName": "查询人脸上传结果",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.QueryFaceResult, RH.UI.Richer",
+              "NextItemId": "AddFaceCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "AddFaceCondition",
+              "ItemName": "是否有未通过的人脸",
+              "TrueNextItemId": "FaceConfirm",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "AddFace",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FaceConfirm",
+              "ItemName": "刷脸确认",
+              "ItemType": 3,
+              "CurrentPage": "FaceConfirmPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "FaceOpenDoorSkipCondition",
+              "ItemName": "是否跳过刷脸登记",
+              "TrueNextItemId": "CheckInSuccess",
+              "FalseNextItemId": "FacePhoto",
+              "BindItems": "FaceOpenDoorSkip",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FacePhoto",
+              "ItemName": "刷脸拍照",
+              "ItemType": 3,
+              "CurrentPage": "AdditionalDoorAccessControlPage.xaml",
+              "NextItemId": "ShowRegMsg"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "ShowRegMsg",
+              "ItemName": "人脸注册成功否判断走向",
+              "NextItemId": "CheckInSuccess",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "UnIdentification"
+                },
+                {
+                  "Case": "2",
+                  "Then": "FaceRegFalse"
+                },
+                {
+                  "Case": "3",
+                  "Then": "FaceRegTrue"
+                }
+              ],
+              "BindItems": "AddFaceReg",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "UnIdentification",
+              "ItemName": "刷脸拍照人证核验失败",
+              "ItemType": 3,
+              "CurrentPage": "FaceIdentificationFailedPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition1"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FaceRegFalse",
+              "ItemName": "人脸注册失败",
+              "ItemType": 3,
+              "CurrentPage": "FaceFailedPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition1"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FaceRegTrue",
+              "ItemName": "人脸注册成功",
+              "ItemType": 3,
+              "CurrentPage": "FaceSuccessPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition1"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "FaceOpenDoorSkipCondition1",
+              "ItemName": "判断走向",
+              "NextItemId": "CheckInSuccess",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "CheckInSuccess"
+                },
+                {
+                  "Case": "2",
+                  "Then": "FaceConfirm"
+                },
+                {
+                  "Case": "3",
+                  "Then": "FacePhoto"
+                }
+              ],
+              "BindItems": "FaceRegCondition",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "JudgeOrderContinue"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "JudgeOrderContinue",
+              "ItemName": "联房是否继续办理",
+              "TrueNextItemId": "ConnOrderContinue",
+              "FalseNextItemId": "end",
+              "BindItems": "ContinueReserve",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "ConnOrderContinue",
+              "ItemName": "联房间继续查询",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.ConnectingRoom, RH.UI.Richer",
+              "NextItemId": "ChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "end",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "reservation",
+        "WorkFlowName": "预定入住",
+        "FlowType": 2
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "1",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "MorningRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "MorningRoomCondition",
+              "ItemName": "是否凌晨房",
+              "TrueNextItemId": "ChooseMorningRoom",
+              "FalseNextItemId": "MemberCondition",
+              "BindItems": "IsMorningRoom",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "ChooseMorningRoom",
+              "ItemName": "凌晨房选择房型",
+              "ItemType": 3,
+              "CurrentPage": "ChooseMorningRoomPage.xaml",
+              "NextItemId": "PhoneCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "MemberCondition",
+              "ItemName": "是否开启会员",
+              "TrueNextItemId": "2",
+              "FalseNextItemId": "3",
+              "BindItems": "MemberValidation",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "2",
+              "ItemName": "会员认证",
+              "ItemType": 3,
+              "CurrentPage": "MemberCertifyPage.xaml",
+              "NextItemId": "3"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "3",
+              "ItemName": "选择房型与入住天数",
+              "ItemType": 3,
+              "CurrentPage": "ChooseRoomAndDaysPage.xaml",
+              "NextItemId": "PhoneCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "PhoneCondition",
+              "ItemName": "是否开启预留手机号",
+              "TrueNextItemId": "4",
+              "FalseNextItemId": "5",
+              "BindItems": "IsReservedPhone",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "4",
+              "ItemName": "输入手机号",
+              "ItemType": 3,
+              "CurrentPage": "PhonePage.xaml",
+              "NextItemId": "5"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "5",
+              "ItemName": "选择入住人数",
+              "ItemType": 3,
+              "CurrentPage": "FixStayNumPage.xaml",
+              "NextItemId": "GuestCheckCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "GuestCheckCondition",
+              "ItemName": "是否开启前台核验",
+              "TrueNextItemId": "51",
+              "FalseNextItemId": "6",
+              "BindItems": "ManualCheckOfOccupancy",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "51",
+              "ItemName": "前台核验",
+              "ItemType": 3,
+              "CurrentPage": "FrontDeskChecksPage.xaml",
+              "NextItemId": "6"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "6",
+              "ItemName": "订单确认",
+              "ItemType": 3,
+              "CurrentPage": "CheckOrderPage.xaml",
+              "NextItemId": "Identify"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Identify",
+              "ItemName": "人证核验",
+              "ItemType": 3,
+              "CurrentPage": "IdentityVerificationPage.xaml",
+              "BindItems": "IsSupplementaryRegistration",
+              "NextItemId": "BuildOrderId"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "BuildOrderId",
+              "ItemName": "产生订单",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.BuildOrderId, RH.UI.Richer",
+              "NextItemId": "PaymentCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "PaymentCondition",
+              "ItemName": "是否使用担保交易",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "PaymentByC2BUnion"
+                },
+                {
+                  "Case": "2",
+                  "Then": "PaymentByB2CUnion"
+                },
+                {
+                  "Case": "4",
+                  "Then": "PaymentByC2B"
+                },
+                {
+                  "Case": "5",
+                  "Then": "PaymentByB2C"
+                }
+              ],
+              "BindItems": "PayType",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByC2BUnion",
+              "ItemName": "支付-C扫B聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BUnionPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByB2CUnion",
+              "ItemName": "支付-B扫C聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CUnionPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByC2B",
+              "ItemName": "支付-C扫B可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByB2C",
+              "ItemName": "支付-B扫C可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckIn",
+              "ItemName": "办理入住中",
+              "ItemType": 3,
+              "CurrentPage": "CheckInPage.xaml",
+              "NextItemId": "CheckInResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "CheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "SendCardCondition",
+              "FalseNextItemId": "CheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "SendCardCondition",
+              "ItemName": "是否发卡",
+              "TrueNextItemId": "ManualCondition",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "OpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ManualCondition",
+              "ItemName": "是否手动发卡",
+              "TrueNextItemId": "MakeCardManual",
+              "FalseNextItemId": "MakeCard",
+              "BindItems": "ManualMakingCard",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCardManual",
+              "ItemName": "手动发卡",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardManualPage.xaml",
+              "NextItemId": "CheckInSuccess"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCard",
+              "ItemName": "房卡制作",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardPage.xaml",
+              "NextItemId": "MakeCardResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "MakeCardResult",
+              "ItemName": "制卡结果",
+              "TrueNextItemId": "FaceOpenDoorCondition",
+              "FalseNextItemId": "MakeCardFailed",
+              "BindItems": "IsMakeCardDN",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCardFailed",
+              "ItemName": "制卡失败提示",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardFailedPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "FaceOpenDoorCondition",
+              "ItemName": "是否开启刷脸",
+              "TrueNextItemId": "QueryFaceResult",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "FaceOpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "QueryFaceResult",
+              "ItemName": "查询人脸上传结果",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.QueryFaceResult, RH.UI.Richer",
+              "NextItemId": "AddFaceCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "AddFaceCondition",
+              "ItemName": "是否有未通过的人脸",
+              "TrueNextItemId": "FaceConfirm",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "AddFace",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FaceConfirm",
+              "ItemName": "刷脸确认",
+              "ItemType": 3,
+              "CurrentPage": "FaceConfirmPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "FaceOpenDoorSkipCondition",
+              "ItemName": "是否跳过刷脸登记",
+              "TrueNextItemId": "CheckInSuccess",
+              "FalseNextItemId": "FacePhoto",
+              "BindItems": "FaceOpenDoorSkip",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FacePhoto",
+              "ItemName": "刷脸拍照",
+              "ItemType": 3,
+              "CurrentPage": "AdditionalDoorAccessControlPage.xaml",
+              "NextItemId": "ShowRegMsg"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "ShowRegMsg",
+              "ItemName": "人脸注册成功否判断走向",
+              "NextItemId": "CheckInSuccess",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "UnIdentification"
+                },
+                {
+                  "Case": "2",
+                  "Then": "FaceRegFalse"
+                },
+                {
+                  "Case": "3",
+                  "Then": "FaceRegTrue"
+                }
+              ],
+              "BindItems": "AddFaceReg",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "UnIdentification",
+              "ItemName": "刷脸拍照人证核验失败",
+              "ItemType": 3,
+              "CurrentPage": "FaceIdentificationFailedPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition1"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FaceRegFalse",
+              "ItemName": "人脸注册失败",
+              "ItemType": 3,
+              "CurrentPage": "FaceFailedPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition1"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "FaceRegTrue",
+              "ItemName": "人脸注册成功",
+              "ItemType": 3,
+              "CurrentPage": "FaceSuccessPage.xaml",
+              "NextItemId": "FaceOpenDoorSkipCondition1"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "FaceOpenDoorSkipCondition1",
+              "ItemName": "判断走向",
+              "NextItemId": "CheckInSuccess",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "CheckInSuccess"
+                },
+                {
+                  "Case": "2",
+                  "Then": "FaceConfirm"
+                },
+                {
+                  "Case": "3",
+                  "Then": "FacePhoto"
+                }
+              ],
+              "BindItems": "FaceRegCondition",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "end",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "noreservation",
+        "WorkFlowName": "无预定入住",
+        "FlowType": 3
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "IdCardCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "PrevItemId": null,
+              "TrueNextItemId": "InsertCard",
+              "FalseNextItemId": "IdCardPage",
+              "BindItems": "OpenDoor",
+              "ItemId": "IdCardCondition",
+              "ItemName": "是否开启身份证续住",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "NextItemId": "QueryOrder",
+              "PrevItemId": null,
+              "CurrentPage": "IdCardPage.xaml",
+              "ItemId": "IdCardPage",
+              "ItemName": "刷身份证",
+              "ItemType": 3
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "InsertCard",
+              "ItemName": "插卡",
+              "ItemType": 3,
+              "CurrentPage": "InsertRoomCardPage.xaml",
+              "NextItemId": "QueryOrder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "QueryOrder",
+              "ItemName": "查询订单",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.QueryRenewalOrder, RH.UI.Richer",
+              "NextItemId": "Order"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Order",
+              "ItemName": "订单显示",
+              "ItemType": 3,
+              "CurrentPage": "RenewalOrderPage.xaml",
+              "NextItemId": "PaymentCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Days",
+              "ItemName": "选择天数",
+              "ItemType": 3,
+              "CurrentPage": "RenewalDaysPage.xaml",
+              "NextItemId": "PaymentCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "PaymentCondition",
+              "ItemName": "是否使用担保交易",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "PaymentByC2BUnion"
+                },
+                {
+                  "Case": "2",
+                  "Then": "PaymentByB2CUnion"
+                },
+                {
+                  "Case": "4",
+                  "Then": "PaymentByC2B"
+                },
+                {
+                  "Case": "5",
+                  "Then": "PaymentByB2C"
+                }
+              ],
+              "BindItems": "PayType",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByC2BUnion",
+              "ItemName": "支付-C扫B聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BUnionPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByB2CUnion",
+              "ItemName": "支付-B扫C聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CUnionPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByC2B",
+              "ItemName": "支付-C扫B可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "PaymentByB2C",
+              "ItemName": "支付-B扫C可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CPage.xaml",
+              "NextItemId": "CheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckIn",
+              "ItemName": "办理入住中",
+              "ItemType": 3,
+              "CurrentPage": "CheckInPage.xaml",
+              "NextItemId": "CheckInResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "CheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "SendCardCondition",
+              "FalseNextItemId": "CheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "SendCardCondition",
+              "ItemName": "是否发卡",
+              "TrueNextItemId": "MakeCard",
+              "FalseNextItemId": "CheckInSuccess",
+              "BindItems": "OpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCard",
+              "ItemName": "房卡制作",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardPage.xaml",
+              "NextItemId": "MakeCardResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "MakeCardResult",
+              "ItemName": "制卡结果",
+              "TrueNextItemId": "CheckInSuccess",
+              "FalseNextItemId": "MakeCardFailed",
+              "BindItems": "IsMakeCardDN",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MakeCardFailed",
+              "ItemName": "制卡失败提示",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardFailedPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "end",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "continue",
+        "WorkFlowName": "续住",
+        "FlowType": 5
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "VisitorPage"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "VisitorPage",
+              "ItemName": "访客登记",
+              "ItemType": 3,
+              "CurrentPage": "VisitorPage.xaml",
+              "NextItemId": "Identify"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Identify",
+              "ItemName": "人证核验",
+              "ItemType": 3,
+              "CurrentPage": "IdentityVerificationPage.xaml",
+              "NextItemId": "CheckInSuccess"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "CheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "CheckInSuccess",
+              "FalseNextItemId": "CheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "CheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "end",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalVisitorPage",
+              "ItemName": "访客登记",
+              "ItemType": 3,
+              "CurrentPage": "VisitorPage.xaml",
+              "NextItemId": "HorizontalIdentify"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalIdentify",
+              "ItemName": "人证核验",
+              "ItemType": 3,
+              "CurrentPage": "IdentityVerificationPage.xaml",
+              "NextItemId": "HorizontalCheckInSuccess"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "HorizontalCheckInSuccess",
+              "FalseNextItemId": "HorizontalCheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "Horizontalend"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "Horizontalend"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "Horizontalend",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "visitor",
+        "WorkFlowName": "访客登记",
+        "FlowType": 6
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "CheckInOrNot"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "CheckInOrNot",
+              "ItemName": "是否有在住房",
+              "TrueNextItemId": "HorizontalChooseRoomCondition",
+              "FalseNextItemId": "Identify",
+              "BindItems": "IsCheckIn",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "Identify",
+              "ItemName": "人证核验",
+              "ItemType": 3,
+              "CurrentPage": "IdentityVerificationVideoPage.xaml",
+              "NextItemId": "HorizontalChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalChooseRoomCondition",
+              "ItemName": "是否用身份证查询到订单",
+              "TrueNextItemId": "ChooseRoomCondition",
+              "FalseNextItemId": "MultiWayOrderQuery",
+              "BindItems": "HaveOrder",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MultiWayOrderQuery",
+              "ItemName": "多方式查订单",
+              "ItemType": 3,
+              "CurrentPage": "QueryOrderByMultipleTypes.xaml",
+              "NextItemId": "ChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ChooseRoomCondition",
+              "ItemName": "是否需要选房型",
+              "TrueNextItemId": "ChooseRoom",
+              "FalseNextItemId": "HorizontalOrder",
+              "BindItems": "ChooseRoomTypesEnable",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "ChooseRoom",
+              "ItemName": "选房型",
+              "ItemType": 3,
+              "CurrentPage": "ChooseRoomPage.xaml",
+              "NextItemId": "HorizontalOrder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalOrder",
+              "ItemName": "订单显示",
+              "ItemType": 3,
+              "CurrentPage": "OrderDetailsMobileNumberPage.xaml",
+              "NextItemId": "HorizontalPayCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ShowFellowResidents",
+              "ItemName": "是否提示有同住人",
+              "TrueNextItemId": "IsFellowResidents",
+              "FalseNextItemId": "HorizontalHaveAResident",
+              "BindItems": "ShowFellowResidents",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "IsFellowResidents",
+              "ItemName": "选择是否有同住人",
+              "ItemType": 3,
+              "CurrentPage": "IsLivingTogether.xaml",
+              "NextItemId": "IsFellowResident"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "IsFellowResident",
+              "ItemName": "是否有同住人",
+              "TrueNextItemId": "HorizontalHaveAResident",
+              "FalseNextItemId": "HorizontalPayCondition",
+              "BindItems": "IsFellowResident",
+              "ItemType": 4
+            },
+
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalHaveAResident",
+              "ItemName": "同住人人证核验",
+              "ItemType": 3,
+              "CurrentPage": "ReadIdCardPage.xaml",
+              "NextItemId": "HorizontalPayCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalPayCondition",
+              "ItemName": "是否需要支付",
+              "TrueNextItemId": "HorizontalPaymentCondition",
+              "FalseNextItemId": "HorizontalCheckIn",
+              "BindItems": "NeedToPay",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentCondition",
+              "ItemName": "是否使用担保交易",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "HorizontalPaymentByC2BUnion"
+                },
+                {
+                  "Case": "2",
+                  "Then": "HorizontalPaymentByB2CUnion"
+                },
+                {
+                  "Case": "4",
+                  "Then": "HorizontalPaymentByC2B"
+                },
+                {
+                  "Case": "5",
+                  "Then": "HorizontalPaymentByB2C"
+                }
+              ],
+              "BindItems": "PayType",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByC2BUnion",
+              "ItemName": "支付-C扫B聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BUnionPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByB2CUnion",
+              "ItemName": "支付-B扫C聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CUnionPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByC2B",
+              "ItemName": "支付-C扫B可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByB2C",
+              "ItemName": "支付-B扫C可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckIn",
+              "ItemName": "办理入住中",
+              "ItemType": 3,
+              "CurrentPage": "CheckInPage.xaml",
+              "NextItemId": "HorizontalCheckInResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "HorizontalSendCardCondition",
+              "FalseNextItemId": "HorizontalCheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalSendCardCondition",
+              "ItemName": "是否发卡",
+              "TrueNextItemId": "HorizontalManualCondition",
+              "FalseNextItemId": "HorizontalCheckInSuccess",
+              "BindItems": "OpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalManualCondition",
+              "ItemName": "是否手动发卡",
+              "TrueNextItemId": "HorizontalMakeCardManual",
+              "FalseNextItemId": "HorizontalMakeCard",
+              "BindItems": "ManualMakingCard",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCardManual",
+              "ItemName": "手动发卡",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardManualPage.xaml",
+              "NextItemId": "HorizontalCheckInSuccess"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCard",
+              "ItemName": "房卡制作",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardPage.xaml",
+              "NextItemId": "HorizontalMakeCardResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCardResult",
+              "ItemName": "制卡结果",
+              "TrueNextItemId": "HorizontalCheckInSuccess",
+              "FalseNextItemId": "HorizontalMakeCardFailed",
+              "BindItems": "IsMakeCardDN",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCardFailed",
+              "ItemName": "制卡失败提示",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardFailedPage.xaml",
+              "NextItemId": "Horizontalend"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "HorizontalJudgeOrderContinue"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalJudgeOrderContinue",
+              "ItemName": "联房是否继续办理",
+              "TrueNextItemId": "HorizonConnOrderContinue",
+              "FalseNextItemId": "Horizontalend",
+              "BindItems": "ContinueReserve",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizonConnOrderContinue",
+              "ItemName": "联房间继续查询",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.ConnectingRoom, RH.UI.Richer",
+              "NextItemId": "onwayitem"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.OneWayItem, RH.WorkFlows",
+              "ItemId": "onwayitem",
+              "ItemName": "单向结点",
+              "ItemType": 9,
+              "CurrentPage": "",
+              "NextItemId": "ChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "Horizontalend"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "Horizontalend",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "fasttrack",
+        "WorkFlowName": "快速入住",
+        "FlowType": 8
+      },
+      {
+        "$type": "RH.WorkFlows.WorkFlow, RH.WorkFlows",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[RH.WorkFlows.ItemBase, RH.WorkFlows]], mscorlib",
+          "$values": [
+            {
+              "$type": "RH.WorkFlows.Items.StartItem, RH.WorkFlows",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "SearchStayIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "SearchStayIn",
+              "ItemName": "是否在住查询",
+              "ItemType": 3,
+              "CurrentPage": "SearchStayInPage.xaml",
+              "NextItemId": "HorizontalChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalChooseRoomCondition",
+              "ItemName": "用身份证是否查询到订单",
+              "TrueNextItemId": "ChooseRoomCondition",
+              "FalseNextItemId": "JudgeIsUserChoose",
+              "BindItems": "HaveOrder",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "JudgeIsUserChoose",
+              "ItemName": "判断是否由客户选择",
+              "TrueNextItemId": "chooseSearchOrDirectIn",
+              "FalseNextItemId": "ChooseDirectInOrNot",
+              "BindItems": "IsUserChoose",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "chooseSearchOrDirectIn",
+              "ItemName": "是另外方式查询还是直接无预定入住",
+              "ItemType": 3,
+              "CurrentPage": "SearchByOtherMethodOrDirectInPage.xaml",
+              "NextItemId": "ChooseDirectInOrNot"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ChooseDirectInOrNot",
+              "ItemName": "判断用户是选择直接入住还是另外查询",
+              "TrueNextItemId": "MorningRoomCondition",
+              "FalseNextItemId": "MultiWayOrderQuery",
+              "BindItems": "IsDirectCheckIn",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "MorningRoomCondition",
+              "ItemName": "是否凌晨房",
+              "TrueNextItemId": "ChooseMorningRoom",
+              "FalseNextItemId": "chooseRoomAndDays",
+              "BindItems": "IsMorningRoom",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "ChooseMorningRoom",
+              "ItemName": "凌晨房选择房型",
+              "ItemType": 3,
+              "CurrentPage": "ChooseMorningRoomPage.xaml",
+              "NextItemId": "HorizontalOrder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "chooseRoomAndDays",
+              "ItemName": "无预定选择房型和天数",
+              "ItemType": 3,
+              "CurrentPage": "ChooseRoomAndDaysPage.xaml",
+              "NextItemId": "HorizontalOrder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "MultiWayOrderQuery",
+              "ItemName": "多方式查订单",
+              "ItemType": 3,
+              "CurrentPage": "QueryOrderByMultipleTypes.xaml",
+              "NextItemId": "ChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "ChooseRoomCondition",
+              "ItemName": "是否需要选房型",
+              "TrueNextItemId": "ChooseRoom",
+              "FalseNextItemId": "HorizontalOrder",
+              "BindItems": "ChooseRoomTypesEnable",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "ChooseRoom",
+              "ItemName": "选房型",
+              "ItemType": 3,
+              "CurrentPage": "ChooseRoomPage.xaml",
+              "NextItemId": "HorizontalOrder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalOrder",
+              "ItemName": "订单显示",
+              "ItemType": 3,
+              "CurrentPage": "OrderDetailsMobileNumberPage.xaml",
+              "NextItemId": "GuestCheckCondition"
+            },
+
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "GuestCheckCondition",
+              "ItemName": "是否开启前台核验",
+              "TrueNextItemId": "51",
+              "FalseNextItemId": "needbuildorder",
+              "BindItems": "ManualCheckOfOccupancy",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "51",
+              "ItemName": "前台核验",
+              "ItemType": 3,
+              "CurrentPage": "FrontDeskChecksPage.xaml",
+              "NextItemId": "needbuildorder"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "needbuildorder",
+              "ItemName": "判断是否有订单来确定是预定还是无预定",
+              "NextItemId": "BuildOrderId",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "BuildOrderId"
+                },
+                {
+                  "Case": "3",
+                  "Then": "JudgeSignature"
+                }
+              ],
+              "BindItems": "CheckInType",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "BuildOrderId",
+              "ItemName": "产生订单",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.BuildOrderId, RH.UI.Richer",
+              "NextItemId": "JudgeSignature"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "JudgeSignature",
+              "ItemName": "是否开启签名确认",
+              "TrueNextItemId": "SignatureConfirmation",
+              "FalseNextItemId": "HorizontalPayCondition",
+              "BindItems": "IsSignature",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "SignatureConfirmation",
+              "ItemName": "签名确认",
+              "ItemType": 3,
+              "CurrentPage": "SignatureConfirmationPage.xaml",
+              "NextItemId": "HorizontalPayCondition"
+            },
+
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalPayCondition",
+              "ItemName": "是否需要支付",
+              "TrueNextItemId": "HorizontalPaymentCondition",
+              "FalseNextItemId": "HorizontalCheckIn",
+              "BindItems": "NeedToPay",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.SwitchItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentCondition",
+              "ItemName": "是否使用担保交易",
+              "CaseItems": [
+                {
+                  "Case": "1",
+                  "Then": "HorizontalPaymentByC2BUnion"
+                },
+                {
+                  "Case": "2",
+                  "Then": "HorizontalPaymentByB2CUnion"
+                },
+                {
+                  "Case": "4",
+                  "Then": "HorizontalPaymentByC2B"
+                },
+                {
+                  "Case": "5",
+                  "Then": "HorizontalPaymentByB2C"
+                }
+              ],
+              "BindItems": "PayType",
+              "ItemType": 8
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByC2BUnion",
+              "ItemName": "支付-C扫B聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BUnionPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByB2CUnion",
+              "ItemName": "支付-B扫C聚合",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CUnionPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByC2B",
+              "ItemName": "支付-C扫B可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByC2BPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalPaymentByB2C",
+              "ItemName": "支付-B扫C可选",
+              "ItemType": 3,
+              "CurrentPage": "PaymentByB2CPage.xaml",
+              "NextItemId": "HorizontalCheckIn"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckIn",
+              "ItemName": "办理入住中",
+              "ItemType": 3,
+              "CurrentPage": "CheckInPage.xaml",
+              "NextItemId": "HorizontalCheckInResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInResult",
+              "ItemName": "入住办理结果",
+              "TrueNextItemId": "HorizontalSendCardCondition",
+              "FalseNextItemId": "HorizontalCheckInFailed",
+              "BindItems": "CheckInResult",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalSendCardCondition",
+              "ItemName": "是否发卡",
+              "TrueNextItemId": "HorizontalManualCondition",
+              "FalseNextItemId": "HorizontalCheckInSuccess",
+              "BindItems": "OpenDoor",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalManualCondition",
+              "ItemName": "是否手动发卡",
+              "TrueNextItemId": "HorizontalMakeCardManual",
+              "FalseNextItemId": "HorizontalMakeCard",
+              "BindItems": "ManualMakingCard",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCardManual",
+              "ItemName": "手动发卡",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardManualPage.xaml",
+              "NextItemId": "HorizontalCheckInSuccess"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCard",
+              "ItemName": "房卡制作",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardPage.xaml",
+              "NextItemId": "HorizontalMakeCardResult"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCardResult",
+              "ItemName": "制卡结果",
+              "TrueNextItemId": "HorizontalCheckInSuccess",
+              "FalseNextItemId": "HorizontalMakeCardFailed",
+              "BindItems": "IsMakeCardDN",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalMakeCardFailed",
+              "ItemName": "制卡失败提示",
+              "ItemType": 3,
+              "CurrentPage": "MakeCardFailedPage.xaml",
+              "NextItemId": "Horizontalend"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInSuccess",
+              "ItemName": "成功提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInSuccessPage.xaml",
+              "NextItemId": "HorizontalJudgeOrderContinue"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.JudgeItem, RH.WorkFlows",
+              "ItemId": "HorizontalJudgeOrderContinue",
+              "ItemName": "联房是否继续办理",
+              "TrueNextItemId": "HorizonConnOrderContinue",
+              "FalseNextItemId": "Horizontalend",
+              "BindItems": "ContinueReserve",
+              "ItemType": 4
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizonConnOrderContinue",
+              "ItemName": "联房间继续查询",
+              "ItemType": 6,
+              "CurrentPage": "RH.UI.Richer.Process.ConnectingRoom, RH.UI.Richer",
+              "NextItemId": "onwayitem"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.OneWayItem, RH.WorkFlows",
+              "ItemId": "onwayitem",
+              "ItemName": "单向结点",
+              "ItemType": 9,
+              "CurrentPage": "",
+              "NextItemId": "ChooseRoomCondition"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.ProcessItem, RH.WorkFlows",
+              "ItemId": "HorizontalCheckInFailed",
+              "ItemName": "失败提示",
+              "ItemType": 3,
+              "CurrentPage": "ShowCheckInFailePage.xaml",
+              "NextItemId": "Horizontalend"
+            },
+            {
+              "$type": "RH.WorkFlows.Items.EndItem, RH.WorkFlows",
+              "ItemId": "Horizontalend",
+              "ReturnPage": "HomePage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "checkin",
+        "WorkFlowName": "入住酒店",
+        "FlowType": 9
+      }
+    ]
+  }
+}

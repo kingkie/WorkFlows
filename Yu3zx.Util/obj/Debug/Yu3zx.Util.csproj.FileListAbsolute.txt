@@ -1,0 +1,12 @@
+F:\NBJJ\MyPlatform\Product\Debug\Yu3zx.Util.dll
+F:\NBJJ\MyPlatform\Product\Debug\Yu3zx.Util.pdb
+F:\NBJJ\MyPlatform\Yu3zx.Util\obj\Debug\Yu3zx.Util.csproj.AssemblyReference.cache
+F:\NBJJ\MyPlatform\Yu3zx.Util\obj\Debug\Yu3zx.Util.csproj.CoreCompileInputs.cache
+F:\NBJJ\MyPlatform\Yu3zx.Util\obj\Debug\Yu3zx.Util.dll
+F:\NBJJ\MyPlatform\Yu3zx.Util\obj\Debug\Yu3zx.Util.pdb
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Product\Debug\Yu3zx.Util.dll
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Product\Debug\Yu3zx.Util.pdb
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.Util\obj\Debug\Yu3zx.Util.csproj.AssemblyReference.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.Util\obj\Debug\Yu3zx.Util.csproj.CoreCompileInputs.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.Util\obj\Debug\Yu3zx.Util.dll
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.Util\obj\Debug\Yu3zx.Util.pdb

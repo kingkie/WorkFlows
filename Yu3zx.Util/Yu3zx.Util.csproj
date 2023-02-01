@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2040C4A5-1A0B-41F0-A937-0CB77AFDFFA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yu3zx.Util</RootNamespace>
+    <AssemblyName>Yu3zx.Util</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Product\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Product\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttachedPropertyBuffer.cs" />
+    <Compile Include="GetSerailNumberHelper.cs" />
+    <Compile Include="GetUSBSerailNumber.cs" />
+    <Compile Include="LunarCalendar.cs" />
+    <Compile Include="ControlDraggerHelper.cs" />
+    <Compile Include="CRCHelper.cs" />
+    <Compile Include="CsvHelper.cs" />
+    <Compile Include="DeepCopy.cs" />
+    <Compile Include="EncryptUtil.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="ImageClass.cs" />
+    <Compile Include="IniFiles.cs" />
+    <Compile Include="MachineHelper.cs" />
+    <Compile Include="NetUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomOperate.cs" />
+    <Compile Include="ReflectionHelper.cs" />
+    <Compile Include="RegexHelper.cs" />
+    <Compile Include="RegistryHelper.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="ScreenHelper.cs" />
+    <Compile Include="SerializeHelper.cs" />
+    <Compile Include="StringUtil.cs" />
+    <Compile Include="TypeHelper.cs" />
+    <Compile Include="VerificationImg.cs" />
+    <Compile Include="WindowsHelper.cs" />
+    <Compile Include="XmlHelper.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
