@@ -1,0 +1,6 @@
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Product\Debug\Yu3zx.GoCsp.pdb
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoCsp\obj\Debug\Yu3zx.GoCsp.csproj.CoreCompileInputs.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoCsp\obj\Debug\Yu3zx.GoCsp.pdb
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoCsp\obj\Debug\Yu3zx.GoCsp.csproj.AssemblyReference.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Product\Debug\Yu3zx.GoCsp.dll
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoCsp\obj\Debug\Yu3zx.GoCsp.dll

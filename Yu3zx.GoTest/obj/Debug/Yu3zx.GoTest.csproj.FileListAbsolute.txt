@@ -1,0 +1,10 @@
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\bin\Debug\Yu3zx.GoTest.exe.config
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\bin\Debug\Yu3zx.GoTest.exe
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\bin\Debug\Yu3zx.GoTest.pdb
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.csproj.AssemblyReference.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.mainFrm.resources
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.Properties.Resources.resources
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.csproj.GenerateResource.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.csproj.CoreCompileInputs.cache
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.exe
+E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.GoTest\obj\Debug\Yu3zx.GoTest.pdb
