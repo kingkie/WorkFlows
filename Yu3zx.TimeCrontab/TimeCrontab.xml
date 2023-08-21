@@ -1,0 +1,1051 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TimeCrontab</name>
+    </assembly>
+    <members>
+        <member name="T:TimeCrontab.Constants">
+            <summary>
+            TimeCrontab 模块常量
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Constants.MaximumDateTimeValues">
+            <summary>
+            Cron 字段种类最大值
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Constants.MinimumDateTimeValues">
+            <summary>
+            Cron 字段种类最大值
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Constants.ExpectedFieldCounts">
+            <summary>
+            Cron 不同格式化类型字段数量
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Constants.CronDays">
+            <summary>
+            配置 C# 中 <see cref="T:System.DayOfWeek"/> 枚举元素值
+            </summary>
+            <remarks>主要解决 C# 中该类型和 Cron 星期字段域不对应问题</remarks>
+        </member>
+        <member name="F:TimeCrontab.Constants.Days">
+            <summary>
+            定义 Cron 星期字段域值支持的星期英文缩写
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Constants.Months">
+            <summary>
+            定义 Cron 月字段域值支持的星期英文缩写
+            </summary>
+        </member>
+        <member name="T:TimeCrontab.CrontabFieldKind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.Second">
+            <summary>
+            秒
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.Minute">
+            <summary>
+            分
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.Hour">
+            <summary>
+            时
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.Day">
+            <summary>
+            天
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.DayOfWeek">
+            <summary>
+            星期
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CrontabFieldKind.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="T:TimeCrontab.CronStringFormat">
+            <summary>
+            Cron 表达式格式化类型
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.CronStringFormat.Default">
+            <summary>
+            默认格式
+            </summary>
+            <remarks>书写顺序：分 时 天 月 周</remarks>
+        </member>
+        <member name="F:TimeCrontab.CronStringFormat.WithYears">
+            <summary>
+            带年份格式
+            </summary>
+            <remarks>书写顺序：分 时 天 月 周 年</remarks>
+        </member>
+        <member name="F:TimeCrontab.CronStringFormat.WithSeconds">
+            <summary>
+            带秒格式
+            </summary>
+            <remarks>书写顺序：秒 分 时 天 月 周</remarks>
+        </member>
+        <member name="F:TimeCrontab.CronStringFormat.WithSecondsAndYears">
+            <summary>
+            带秒和年格式
+            </summary>
+            <remarks>书写顺序：秒 分 时 天 月 周 年</remarks>
+        </member>
+        <member name="T:TimeCrontab.Crontab">
+            <summary>
+            Cron 表达式抽象类
+            </summary>
+            <remarks>主要将 Cron 表达式转换成 OOP 类进行操作</remarks>
+            <summary>
+            Cron 表达式抽象类
+            </summary>
+            <remarks>主要将 Cron 表达式转换成 OOP 类进行操作</remarks>
+            <summary>
+            Cron 表达式抽象类
+            </summary>
+            <remarks>主要将 Cron 表达式转换成 OOP 类进行操作</remarks>
+            <summary>
+            Cron 表达式抽象类
+            </summary>
+            <remarks>主要将 Cron 表达式转换成 OOP 类进行操作</remarks>
+        </member>
+        <member name="M:TimeCrontab.Crontab.#ctor">
+            <summary>
+            构造函数
+            </summary>
+            <remarks>禁止外部 new 实例化</remarks>
+        </member>
+        <member name="P:TimeCrontab.Crontab.Parsers">
+            <summary>
+            Cron 字段解析器字典集合
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.Crontab.Format">
+            <summary>
+            Cron 表达式格式化类型
+            </summary>
+            <remarks>禁止运行时更改</remarks>
+        </member>
+        <member name="M:TimeCrontab.Crontab.Parse(System.String,TimeCrontab.CronStringFormat)">
+            <summary>
+            解析 Cron 表达式并转换成 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+            <param name="expression">Cron 表达式</param>
+            <param name="format">Cron 表达式格式化类型</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.ParseAt(System.String,System.Object[])">
+            <summary>
+            解析 Cron Macro 符号并转换成 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+            <param name="macro">Macro 符号</param>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.TryParse(System.String,TimeCrontab.CronStringFormat)">
+            <summary>
+            解析 Cron 表达式并转换成 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+            <remarks>解析失败返回 default</remarks>
+            <param name="expression">Cron 表达式</param>
+            <param name="format">Cron 表达式格式化类型</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetNextOccurrence(System.DateTime)">
+            <summary>
+            获取起始时间下一个发生时间
+            </summary>
+            <param name="baseTime">起始时间</param>
+            <returns><see cref="T:System.DateTime"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetNextOccurrence(System.DateTime,System.DateTime)">
+            <summary>
+            获取特定时间范围下一个发生时间
+            </summary>
+            <param name="baseTime">起始时间</param>
+            <param name="endTime">结束时间</param>
+            <returns><see cref="T:System.DateTime"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetNextOccurrences(System.DateTime,System.DateTime)">
+            <summary>
+            获取特定时间范围所有发生时间
+            </summary>
+            <param name="baseTime">起始时间</param>
+            <param name="endTime">结束时间</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetSleepMilliseconds(System.DateTime)">
+            <summary>
+            计算距离下一个发生时间相差毫秒数
+            </summary>
+            <param name="baseTime">起始时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetSleepTimeSpan(System.DateTime)">
+            <summary>e
+            计算距离下一个发生时间相差时间戳
+            </summary>
+            <param name="baseTime">起始时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.ToString">
+            <summary>
+            将 <see cref="T:TimeCrontab.Crontab"/> 对象转换成 Cron 表达式字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.ParseToDictionary(System.String,TimeCrontab.CronStringFormat)">
+            <summary>
+            解析 Cron 表达式字段并存储其 所有发生值 字符解析器
+            </summary>
+            <param name="expression">Cron 表达式</param>
+            <param name="format">Cron 表达式格式化类型</param>
+            <returns><see cref="T:System.Collections.Generic.Dictionary`2"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.ParseField(System.String,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            解析 Cron 单个字段域所有发生值 字符解析器
+            </summary>
+            <param name="field">字段值</param>
+            <param name="kind">Cron 表达式格式化类型</param>
+            <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.ParseParser(System.String,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            解析 Cron 字段域值中值
+            </summary>
+            <param name="parser">字段值中值</param>
+            <param name="kind">Cron 表达式格式化类型</param>
+            <returns><see cref="T:TimeCrontab.ICronParser"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetValue(System.String@,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            将 Cron 字段值中值进一步解析
+            </summary>
+            <param name="parser">当前解析值</param>
+            <param name="kind">Cron 表达式格式化类型</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.CheckForIllegalParsers(System.Collections.Generic.Dictionary{TimeCrontab.CrontabFieldKind,System.Collections.Generic.List{TimeCrontab.ICronParser}})">
+            <summary>
+            检查非法字符解析器，如 2 月没有 30 和 31 号
+            </summary>
+            <remarks>检查 2 月份是否存在 30 和 31 天的非法数值解析器</remarks>
+            <param name="parsers">Cron 字段解析器字典集合</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.Crontab.GetSpecificParsers(System.Collections.Generic.Dictionary{TimeCrontab.CrontabFieldKind,System.Collections.Generic.List{TimeCrontab.ICronParser}},TimeCrontab.CrontabFieldKind)">
+            <summary>
+            查找 Cron 字段类型所有具体值解析器
+            </summary>
+            <param name="parsers">Cron 字段解析器字典集合</param>
+            <param name="kind">Cron 字段种类</param>
+            <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.InternalGetNextOccurence(System.DateTime,System.DateTime)">
+            <summary>
+            获取特定时间范围下一个发生时间
+            </summary>
+            <param name="baseTime">起始时间</param>
+            <param name="endTime">结束时间</param>
+            <returns><see cref="T:System.DateTime"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.Increment(System.Collections.Generic.IEnumerable{TimeCrontab.ITimeParser},System.Int32,System.Int32,System.Boolean@)">
+            <summary>
+            获取当前时间解析器下一个发生值
+            </summary>
+            <param name="parsers">解析器</param>
+            <param name="value">当前值</param>
+            <param name="defaultValue">默认值</param>
+            <param name="overflow">控制秒、分钟、小时到达59秒/分和23小时开关</param>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.MinDate(System.DateTime,System.DateTime)">
+            <summary>
+            处理下一个发生时间边界值
+            </summary>
+            <remarks>如果发生时间大于终止时间，则返回终止时间，否则返回发生时间</remarks>
+            <param name="newTime">下一个发生时间</param>
+            <param name="endTime">终止时间</param>
+            <returns><see cref="T:System.DateTime"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.IsMatch(System.DateTime)">
+            <summary>
+            判断 Cron 所有字段字符解析器是否都能匹配当前时间各个部分
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.IsMatch(System.DateTime,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            判断当前 Cron 字段类型字符解析器和当前时间至少存在一种匹配
+            </summary>
+            <param name="datetime">当前时间</param>
+            <param name="kind">Cron 字段种类</param>
+            <returns></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.JoinParsers(System.Collections.Generic.List{System.String},TimeCrontab.CrontabFieldKind)">
+            <summary>
+            将 Cron 字段解析器转换成字符串
+            </summary>
+            <param name="paramList">Cron 字段字符串集合</param>
+            <param name="kind">Cron 字段种类</param>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Secondly">
+            <summary>
+            表示每秒的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Minutely">
+            <summary>
+            表示每分钟的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Hourly">
+            <summary>
+            表示每小时开始 的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Daily">
+            <summary>
+            表示每天（午夜）开始的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Monthly">
+            <summary>
+            表示每月1号（午夜）开始的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Weekly">
+            <summary>
+            表示每周日（午夜）开始的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Yearly">
+            <summary>
+            表示每年1月1号（午夜）开始的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="F:TimeCrontab.Crontab.Workday">
+            <summary>
+            表示每周一至周五（午夜）开始的 <see cref="T:TimeCrontab.Crontab"/> 对象
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.Crontab.SecondlyAt(System.Object[])">
+            <summary>
+            创建指定特定秒开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.MinutelyAt(System.Object[])">
+            <summary>
+            创建每分钟特定秒开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.HourlyAt(System.Object[])">
+            <summary>
+            创建每小时特定分钟开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.DailyAt(System.Object[])">
+            <summary>
+            创建每天特定小时开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.MonthlyAt(System.Object[])">
+            <summary>
+            创建每月特定天（午夜）开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.WeeklyAt(System.Object[])">
+            <summary>
+            创建每周特定星期几（午夜）开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.YearlyAt(System.Object[])">
+            <summary>
+            创建每年特定月1号（午夜）开始作业触发器构建器
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:TimeCrontab.Crontab"/></returns>
+        </member>
+        <member name="M:TimeCrontab.Crontab.CheckFieldsNotNullOrEmpty(System.Object[])">
+            <summary>
+            检查字段域 非 Null 非空数组
+            </summary>
+            <param name="fields">字段值</param>
+        </member>
+        <member name="M:TimeCrontab.Crontab.FieldsToString(System.Object[])">
+            <summary>
+            将字段域转换成 string
+            </summary>
+            <param name="fields">字段值</param>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.TimeCrontabException">
+            <summary>
+            TimeCrontab 模块异常类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.TimeCrontabException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.TimeCrontabException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">异常消息</param>
+        </member>
+        <member name="M:TimeCrontab.TimeCrontabException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">异常消息</param>
+            <param name="innerException">内部异常</param>
+        </member>
+        <member name="T:TimeCrontab.DayOfWeekExtensions">
+            <summary>
+            <see cref="T:System.DayOfWeek"/> 拓展类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.DayOfWeekExtensions.ToCronDayOfWeek(System.DayOfWeek)">
+            <summary>
+            将 C# 中 <see cref="T:System.DayOfWeek"/> 枚举元素转换成数值
+            </summary>
+            <param name="dayOfWeek"><see cref="T:System.DayOfWeek"/> 枚举</param>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="M:TimeCrontab.DayOfWeekExtensions.ToDayOfWeek(System.Int32)">
+            <summary>
+            将数值转换成 C# 中 <see cref="T:System.DayOfWeek"/> 枚举元素
+            </summary>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TimeCrontab.DayOfWeekExtensions.LastDayOfMonth(System.DayOfWeek,System.Int32,System.Int32)">
+            <summary>
+            获取当前年月最后一个星期几
+            </summary>
+            <param name="dayOfWeek">星期几，<see cref="T:System.DayOfWeek"/> 类型</param>
+            <param name="year">年</param>
+            <param name="month">月</param>
+            <returns><see cref="T:System.Int32"/></returns>
+        </member>
+        <member name="T:TimeCrontab.AnyParser">
+            <summary>
+            Cron 字段值含 * 字符解析器
+            </summary>
+            <remarks>
+            <para>* 表示任意值，该字符支持在 Cron 所有字段域中设置</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.AnyParser.#ctor(TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="kind">Cron 字段种类</param>
+        </member>
+        <member name="P:TimeCrontab.AnyParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.AnyParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.AnyParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.AnyParser.First">
+            <summary>
+            获取 Cron 字段种类字段起始值
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.AnyParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.BlankDayOfMonthOrWeekParser">
+            <summary>
+            Cron 字段值含 ? 字符解析器
+            </summary>
+            <remarks>
+            <para>只能用在 Day 和 DayOfWeek 两个域使用。它也匹配域的任意值，但实际不会。因为 Day 和 DayOfWeek 会相互影响</para>
+            <para>例如想在每月的 20 日触发调度，不管 20 日到底是星期几，则只能使用如下写法：13 15 20 * ?</para>
+            <para>其中最后一位只能用 ?，而不能使用 *，如果使用 * 表示不管星期几都会触发，实际上并不是这样</para>
+            <para>所以 ? 起着 Day 和 DayOfWeek 互斥性作用</para>
+            <para>仅在 <see cref="F:TimeCrontab.CrontabFieldKind.Day"/> 或 <see cref="F:TimeCrontab.CrontabFieldKind.DayOfWeek"/> 字段域中使用</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.BlankDayOfMonthOrWeekParser.#ctor(TimeCrontab.CrontabFieldKind)">
+            <summary>
+             构造函数
+            </summary>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.BlankDayOfMonthOrWeekParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.BlankDayOfMonthOrWeekParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.BlankDayOfMonthOrWeekParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.BlankDayOfMonthOrWeekParser.First">
+            <summary>
+            获取 Cron 字段种类字段起始值
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.BlankDayOfMonthOrWeekParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.ICronParser">
+            <summary>
+            Cron 字段字符解析器依赖接口
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.ICronParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.ICronParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="T:TimeCrontab.ITimeParser">
+            <summary>
+            DateTime 时间解析器依赖接口
+            </summary>
+            <remarks>主要用于计算 DateTime 主要组成部分（秒，分，时，年）的下一个取值</remarks>
+        </member>
+        <member name="M:TimeCrontab.ITimeParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.ITimeParser.First">
+            <summary>
+            获取 Cron 字段种类字段起始值
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="T:TimeCrontab.LastDayOfMonthParser">
+            <summary>
+            Cron 字段值含 L 字符解析器
+            </summary>
+            <remarks>
+            <para>L 表示月中最后一天，仅在 <see cref="F:TimeCrontab.CrontabFieldKind.Day"/> 字段域中使用</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.LastDayOfMonthParser.#ctor(TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.LastDayOfMonthParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.LastDayOfMonthParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.LastDayOfMonthParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.LastDayOfWeekInMonthParser">
+            <summary>
+            Cron 字段值含 {0}L 字符解析器
+            </summary>
+            <remarks>
+            <para>表示月中最后一个星期{0}，仅在 <see cref="F:TimeCrontab.CrontabFieldKind.DayOfWeek"/> 字段域中使用</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.LastDayOfWeekInMonthParser.#ctor(System.Int32,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dayOfWeek">星期，0 = 星期天，7 = 星期六</param>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.LastDayOfWeekInMonthParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.LastDayOfWeekInMonthParser.DayOfWeek">
+            <summary>
+            星期
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.LastDayOfWeekInMonthParser.DateTimeDayOfWeek">
+            <summary>
+            <see cref="P:TimeCrontab.LastDayOfWeekInMonthParser.DayOfWeek"/> 类型星期
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.LastDayOfWeekInMonthParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.LastDayOfWeekInMonthParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.LastWeekdayOfMonthParser">
+            <summary>
+            Cron 字段值含 LW 字符解析器
+            </summary>
+            <remarks>
+            <para>表示月中最后一个工作日，即最后一个非周六周末的日期，仅在 <see cref="F:TimeCrontab.CrontabFieldKind.Day"/> 字段域中使用</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.LastWeekdayOfMonthParser.#ctor(TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.LastWeekdayOfMonthParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.LastWeekdayOfMonthParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.LastWeekdayOfMonthParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.NearestWeekdayParser">
+            <summary>
+            Cron 字段值含 {0}W 字符解析器
+            </summary>
+            <remarks>
+            <para>表示离指定日期最近的工作日，即最后一个非周六周末日，仅在 <see cref="F:TimeCrontab.CrontabFieldKind.Day"/> 字段域中使用</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.NearestWeekdayParser.#ctor(System.Int32,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="specificValue">天数（具体值）</param>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException">Cron 字段种类</exception>
+        </member>
+        <member name="P:TimeCrontab.NearestWeekdayParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.NearestWeekdayParser.SpecificValue">
+            <summary>
+            天数（具体值）
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.NearestWeekdayParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.NearestWeekdayParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.RangeParser">
+            <summary>
+            Cron 字段值含 - 字符解析器
+            </summary>
+            <remarks>
+            <para>表示特定取值范围，如 1-5 或 1-5/2，该字符支持在 Cron 所有字段域中设置</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.RangeParser.#ctor(System.Int32,System.Int32,System.Nullable{System.Int32},TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="start">起始值</param>
+            <param name="end">终止值</param>
+            <param name="steps">步长</param>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.RangeParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.RangeParser.Start">
+            <summary>
+            起始值
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.RangeParser.End">
+            <summary>
+            终止值
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.RangeParser.Steps">
+            <summary>
+            步长
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.RangeParser.SpecificParsers">
+            <summary>
+            所有满足范围计算的解析器
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.RangeParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.RangeParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.RangeParser.FirstCache">
+            <summary>
+            存储起始值，避免重复计算
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.RangeParser.First">
+            <summary>
+            获取 Cron 字段种类字段起始值
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.RangeParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:TimeCrontab.RangeParser.IsMatch(System.Int32)">
+            <summary>
+            判断是否符合范围或带步长范围解析规则
+            </summary>
+            <param name="evalValue">当前值</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="T:TimeCrontab.SpecificDayOfWeekInMonthParser">
+            <summary>
+            Cron 字段值含 {0}#{1} 字符解析器
+            </summary>
+            <remarks>
+            <para>表示月中第{0}个星期{1}，仅在 <see cref="F:TimeCrontab.CrontabFieldKind.DayOfWeek"/> 字段域中使用</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.SpecificDayOfWeekInMonthParser.#ctor(System.Int32,System.Int32,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dayOfWeek">星期，0 = 星期天，7 = 星期六</param>
+            <param name="weekNumber">月中第几个星期</param>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.SpecificDayOfWeekInMonthParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.SpecificDayOfWeekInMonthParser.DayOfWeek">
+            <summary>
+            星期
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.SpecificDayOfWeekInMonthParser.DateTimeDayOfWeek">
+            <summary>
+            <see cref="P:TimeCrontab.SpecificDayOfWeekInMonthParser.DayOfWeek"/> 类型星期
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.SpecificDayOfWeekInMonthParser.WeekNumber">
+            <summary>
+            月中第几个星期
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.SpecificDayOfWeekInMonthParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.SpecificDayOfWeekInMonthParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="T:TimeCrontab.SpecificParser">
+            <summary>
+            Cron 字段值含 数值 字符解析器
+            </summary>
+            <remarks>
+            <para>表示具体值，该字符支持在 Cron 所有字段域中设置</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.SpecificParser.#ctor(System.Int32,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="specificValue">具体值</param>
+            <param name="kind">Cron 字段种类</param>
+        </member>
+        <member name="P:TimeCrontab.SpecificParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.SpecificParser.SpecificValue">
+            <summary>
+            具体值
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.SpecificParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.SpecificParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.SpecificParser.First">
+            <summary>
+            获取 Cron 字段种类字段起始值
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.SpecificParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:TimeCrontab.SpecificParser.ValidateBounds(System.Int32)">
+            <summary>
+            验证值有效性
+            </summary>
+            <param name="value">具体值</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:TimeCrontab.SpecificYearParser">
+            <summary>
+            Cron 字段值含 数值 字符解析器
+            </summary>
+            <remarks>
+            <para>表示具体值，这里仅处理 <see cref="F:TimeCrontab.CrontabFieldKind.Year"/> 字段域</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.SpecificYearParser.#ctor(System.Int32,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="specificValue">年（具体值)</param>
+            <param name="kind">Cron 字段种类</param>
+        </member>
+        <member name="M:TimeCrontab.SpecificYearParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="T:TimeCrontab.StepParser">
+            <summary>
+            Cron 字段值含 / 字符解析器
+            </summary>
+            <remarks>
+            <para>表示从某值开始，每隔固定值触发，该字符支持在 Cron 所有字段域中设置</para>
+            </remarks>
+        </member>
+        <member name="M:TimeCrontab.StepParser.#ctor(System.Int32,System.Int32,TimeCrontab.CrontabFieldKind)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="start">起始值</param>
+            <param name="steps">步长</param>
+            <param name="kind">Cron 字段种类</param>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.StepParser.Kind">
+            <summary>
+            Cron 字段种类
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.StepParser.Start">
+            <summary>
+            起始值
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.StepParser.Steps">
+            <summary>
+            步长
+            </summary>
+        </member>
+        <member name="P:TimeCrontab.StepParser.SpecificParsers">
+            <summary>
+            所有满足间隔步长计算的解析器
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.StepParser.IsMatch(System.DateTime)">
+            <summary>
+            判断当前时间是否符合 Cron 字段种类解析规则
+            </summary>
+            <param name="datetime">当前时间</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+        <member name="M:TimeCrontab.StepParser.Next(System.Int32)">
+            <summary>
+            获取 Cron 字段种类当前值的下一个发生值
+            </summary>
+            <param name="currentValue">时间值</param>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="P:TimeCrontab.StepParser.FirstCache">
+            <summary>
+            存储起始值，避免重复计算
+            </summary>
+        </member>
+        <member name="M:TimeCrontab.StepParser.First">
+            <summary>
+            获取 Cron 字段种类字段起始值
+            </summary>
+            <returns><see cref="T:System.Int32"/></returns>
+            <exception cref="T:TimeCrontab.TimeCrontabException"></exception>
+        </member>
+        <member name="M:TimeCrontab.StepParser.ToString">
+            <summary>
+            将解析器转换成字符串输出
+            </summary>
+            <returns><see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:TimeCrontab.StepParser.IsMatch(System.Int32)">
+            <summary>
+            判断是否符合间隔或带步长间隔解析规则
+            </summary>
+            <param name="evalValue">当前值</param>
+            <returns><see cref="T:System.Boolean"/></returns>
+        </member>
+    </members>
+</doc>

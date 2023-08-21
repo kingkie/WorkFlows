@@ -10,13 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.LogHelper", "Yu3zx.LogHelper\Yu3zx.LogHelper.csproj", "{C5B21C57-5512-4B03-8EA4-6CCD9BB72460}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D9BD9F2A-269A-4E2A-8B9C-0A0B5F30E88C}"
-	ProjectSection(SolutionItems) = preProject
-		ReadMe.txt = ReadMe.txt
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.GoCsp", "Yu3zx.GoCsp\Yu3zx.GoCsp.csproj", "{4CFB47E4-59EF-4FB3-8833-60625B4DB614}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.GoTest", "Yu3zx.GoTest\Yu3zx.GoTest.csproj", "{AB96B11A-E751-4B4B-A0F2-2B1B064D4928}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yu3zx.TimeCrontab", "Yu3zx.TimeCrontab\Yu3zx.TimeCrontab.csproj", "{9EB91C7B-B57E-4F30-8322-64CF0C3465D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +43,10 @@ Global
 		{AB96B11A-E751-4B4B-A0F2-2B1B064D4928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB96B11A-E751-4B4B-A0F2-2B1B064D4928}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB96B11A-E751-4B4B-A0F2-2B1B064D4928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB91C7B-B57E-4F30-8322-64CF0C3465D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB91C7B-B57E-4F30-8322-64CF0C3465D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB91C7B-B57E-4F30-8322-64CF0C3465D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB91C7B-B57E-4F30-8322-64CF0C3465D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
