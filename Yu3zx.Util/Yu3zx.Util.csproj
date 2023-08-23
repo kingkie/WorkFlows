@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -45,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttachedPropertyBuffer.cs" />
+    <Compile Include="Crc16.cs" />
     <Compile Include="GetSerailNumberHelper.cs" />
     <Compile Include="GetUSBSerailNumber.cs" />
+    <Compile Include="JSONUtil.cs" />
     <Compile Include="LunarCalendar.cs" />
     <Compile Include="ControlDraggerHelper.cs" />
     <Compile Include="CRCHelper.cs" />
@@ -70,6 +76,7 @@
     <Compile Include="StringUtil.cs" />
     <Compile Include="TypeHelper.cs" />
     <Compile Include="VerificationImg.cs" />
+    <Compile Include="VerifyHelper.cs" />
     <Compile Include="WindowsHelper.cs" />
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
