@@ -27,6 +27,8 @@ namespace Yu3zx.CommNetwork.Ports
 
         private List<string> lPorts = new List<string>(); //获取串口数组
 
+        private List<int> lRate = new List<int>();//支持多个波特率
+
         private bool haveInit = false;
         #region 属性区
 
@@ -160,6 +162,8 @@ namespace Yu3zx.CommNetwork.Ports
                 {
                     lPorts.Clear();
                     lPorts.AddRange(SerialPort.GetPortNames());
+                    lRate.Add(115200);
+                    lRate.Add(19200);
                     haveInit = true;
                 }
 
@@ -215,9 +219,19 @@ namespace Yu3zx.CommNetwork.Ports
                     else
                     {
                         this.CommName = lPorts[0]; //使用剩下的串口号
-                        if (lPorts.Contains(this.CommName))
+                        this.CommBaudRate = lRate[0];//
+                        if (lPorts.Contains(this.CommName) && lRate.Count == 0)
                         {
                             lPorts.Remove(this.CommName);
+                            lRate.Add(19200);
+                            lRate.Add(115200);//支持多个波特率轮询
+                        }
+                        else
+                        {
+                            if (lRate.Count > 0)
+                            {
+                                lRate.Remove(this.CommBaudRate);
+                            }
                         }
                     }
 
@@ -338,6 +352,110 @@ namespace Yu3zx.CommNetwork.Ports
             }
             return false;
         }
+
+        #region 好用代码
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <returns></returns>
+        public bool InitNew()
+        {
+            try
+            {
+                if (sp != null)
+                {
+                    try
+                    {
+                        sp.Close();
+                        sp.Dispose();
+                        sp = null;
+                    }
+                    catch
+                    { }
+                }
+                sp = new SerialPort();
+                sp.PortName = this.CommName;
+                sp.BaudRate = CommBaudRate;
+                sp.DataBits = databits;
+                sp.Parity = parity;
+                sp.StopBits = stopbits;
+                sp.DataReceived += Sp_DataReceived;
+
+                if (!haveInit)
+                {
+                    lPorts.AddRange(SerialPort.GetPortNames());
+
+                    lRate.Add(115200);
+                    lRate.Add(19200);
+                }
+                haveInit = true;
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// 与Init不需要
+        /// </summary>
+        /// <returns></returns>
+        public bool NewAutoConnect()
+        {
+            try
+            {
+                if (sp == null)
+                {
+                    this.InitNew();
+
+                }
+                else
+                {
+                    sp.Close();
+                }
+                if (lPorts.Count > 0)
+                {
+                    try
+                    {
+                        //sp.PortName = lPorts[0]; //使用剩下的串口号
+                        this.CommName = lPorts[0]; //使用剩下的串口号
+                        this.CommBaudRate = lRate[0];//
+                        sp.Open();
+                    }
+                    catch
+                    {
+
+                    }
+
+                    if (lPorts.Contains(this.CommName) && lRate.Count == 0)
+                    {
+                        lPorts.Remove(this.CommName);
+                        lRate.Add(19200);
+                        lRate.Add(115200);
+                    }
+                    else
+                    {
+                        if (lRate.Count > 0)
+                        {
+                            lRate.Remove(this.CommBaudRate);
+                        }
+                    }
+                    return sp.IsOpen;
+                }
+                else
+                {
+                    MessageNotify("已经尝试过所有串口了", 1);
+                    lPorts.AddRange(SerialPort.GetPortNames());//重新获取系统所有串口列表
+                }
+            }
+            catch
+            {
+
+            }
+            return false;
+        }
+        #endregion End
+
         private void Sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
