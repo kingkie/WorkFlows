@@ -1,0 +1,22 @@
+﻿<Window
+    x:Class="Yu3zx.WorkflowTesh.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Yu3zx.WorkflowTesh"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    Unloaded="Window_Unloaded"
+    mc:Ignorable="d">
+    <Grid>
+        <Frame
+            x:Name="mainFrame"
+            Margin="0"
+            JournalOwnership="Automatic"
+            NavigationUIVisibility="Hidden"
+            RenderTransformOrigin="0.5,0.5" />
+    </Grid>
+</Window>

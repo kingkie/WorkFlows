@@ -1,4 +1,4 @@
-﻿namespace Yu3zx.WorkFlowCore
+﻿namespace Yu3zx.WorkFlowCore.Items
 {
     public class JudgeItem : ItemBase, IOperate
     {

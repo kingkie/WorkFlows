@@ -5,3 +5,10 @@ E:\MyProjects\APlanProject\3Coding\WorkFlows\Product\Debug\Yu3zx.WorkFlowCore.pd
 E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.csproj.CopyComplete
 E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.dll
 E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.pdb
+F:\SmellKindoms\WorkFlows\Product\Debug\Yu3zx.WorkFlowCore.dll
+F:\SmellKindoms\WorkFlows\Product\Debug\Yu3zx.WorkFlowCore.pdb
+F:\SmellKindoms\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.csproj.AssemblyReference.cache
+F:\SmellKindoms\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.csproj.CoreCompileInputs.cache
+F:\SmellKindoms\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.csproj.CopyComplete
+F:\SmellKindoms\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.dll
+F:\SmellKindoms\WorkFlows\Yu3zx.WorkFlowCore\obj\Debug\Yu3zx.WorkFlowCore.pdb

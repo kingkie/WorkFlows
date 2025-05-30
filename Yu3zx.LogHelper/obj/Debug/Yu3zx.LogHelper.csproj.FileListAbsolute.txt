@@ -8,3 +8,9 @@ E:\MyProjects\APlanProject\3Coding\WorkFlows\Product\Debug\Yu3zx.LogHelper.pdb
 E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.csproj.CoreCompileInputs.cache
 E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.dll
 E:\MyProjects\APlanProject\3Coding\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.pdb
+F:\SmellKindoms\WorkFlows\Product\Debug\Yu3zx.LogHelper.dll
+F:\SmellKindoms\WorkFlows\Product\Debug\Yu3zx.LogHelper.pdb
+F:\SmellKindoms\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.csproj.AssemblyReference.cache
+F:\SmellKindoms\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.csproj.CoreCompileInputs.cache
+F:\SmellKindoms\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.dll
+F:\SmellKindoms\WorkFlows\Yu3zx.LogHelper\obj\Debug\Yu3zx.LogHelper.pdb
