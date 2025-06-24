@@ -1,0 +1,75 @@
+{
+  "$type": "Yu3zx.WorkFlowCore.WorkFlowManager, Yu3zx.WorkFlowCore",
+  "Flows": {
+    "$type": "System.Collections.Generic.List`1[[Yu3zx.WorkFlowCore.WorkFlow, Yu3zx.WorkFlowCore]], mscorlib",
+    "$values": [
+      {
+        "$type": "Yu3zx.WorkFlowCore.WorkFlow, Yu3zx.WorkFlowCore",
+        "FlowItems": {
+          "$type": "System.Collections.Generic.List`1[[Yu3zx.WorkFlowCore.ItemBase, Yu3zx.WorkFlowCore]], mscorlib",
+          "$values": [
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.StartItem, Yu3zx.WorkFlowCore",
+              "ItemId": "start",
+              "ItemName": "开始",
+              "ItemType": 1,
+              "NextItemId": "homepage"
+            },
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.ProcessItem, Yu3zx.WorkFlowCore",
+              "ItemId": "homepage",
+              "ItemName": "首 页",
+              "ItemType": 3,
+              "CurrentPage": "IndexPage.xaml",
+              "NextItemId": "firstpage"
+            },
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.ProcessItem, Yu3zx.WorkFlowCore",
+              "ItemId": "firstpage",
+              "ItemName": "第一页",
+              "ItemType": 3,
+              "CurrentPage": "OnePage.xaml",
+              "NextItemId": "twopage"
+            },
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.ProcessItem, Yu3zx.WorkFlowCore",
+              "ItemId": "twopage",
+              "ItemName": "第二页",
+              "ItemType": 3,
+              "CurrentPage": "TwoPage.xaml",
+              "NextItemId": "judgenode"
+            },
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.JudgeItem, Yu3zx.WorkFlowCore",
+              "PrevItemId": "twopage",
+              "TrueNextItemId": "end",
+              "FalseNextItemId": "lastpage",
+              "BindItems": "IsGoEnd",
+              "ItemId": "judgenode",
+              "ItemName": "判断跳转",
+              "ItemType": 4
+            },
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.ProcessItem, Yu3zx.WorkFlowCore",
+              "ItemId": "lastpage",
+              "ItemName": "最后一页",
+              "ItemType": 3,
+              "CurrentPage": "lastPage.xaml",
+              "NextItemId": "end"
+            },
+            {
+              "$type": "Yu3zx.WorkFlowCore.Items.EndItem, Yu3zx.WorkFlowCore",
+              "ItemId": "end",
+              "ReturnPage": "IndexPage.xaml",
+              "ItemName": "结束",
+              "ItemType": 2
+            }
+          ]
+        },
+        "WorkFlowId": "default",
+        "WorkFlowName": "默认流程",
+        "FlowType": 6
+      }
+    ]
+  }
+}

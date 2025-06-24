@@ -1,0 +1,24 @@
+{
+  "TagNodes": [
+    {
+      "NodeId": "HaveOrder",
+      "NodeName": "是否有订单"
+    },
+    {
+      "NodeId": "OrderId",
+      "NodeName": "订单号"
+    },
+    {
+      "NodeId": "OpenDoor",
+      "NodeName": "是否发卡"
+    },
+    {
+      "NodeId": "IsMakeCardDN",
+      "NodeName": "是否成功制卡"
+    },
+    {
+      "NodeId": "IsGoEnd",
+      "NodeName": "是否直接结束"
+    }
+  ]
+}
